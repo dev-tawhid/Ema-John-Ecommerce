@@ -1,0 +1,17 @@
+.reviewitems img{
+    width: 150px;
+}
+.reviewitems {
+    border-bottom: 1px solid lightgray;
+    padding: 10px;
+    margin-bottom: 5px;
+    display: flex;
+}
+.removeItem{
+    background: #FF9D0C;
+    width: 120px;
+    height: 30px;
+    border: 1px solid lightgray;
+    cursor: pointer;
+    color: #fff;
+}

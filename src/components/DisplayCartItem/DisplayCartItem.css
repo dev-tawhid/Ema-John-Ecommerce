@@ -1,0 +1,8 @@
+.displayCartItems{
+    display: flex;
+    border-bottom: 1px solid lightblue;
+}
+.displayCartItems img{
+    width: 80px;
+    margin-right: 10px;
+}

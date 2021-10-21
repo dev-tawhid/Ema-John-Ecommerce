@@ -1,0 +1,8 @@
+.checkOutBtn{
+    background: #FF9D0C;
+    width: 120px;
+    height: 30px;
+    border: 1px solid lightgray;
+    cursor: pointer;
+    color: #fff;
+}

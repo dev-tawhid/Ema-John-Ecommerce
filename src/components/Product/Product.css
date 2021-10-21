@@ -1,0 +1,19 @@
+.product-layout{
+    display: flex;
+    border-bottom: 1px solid lightgray;
+    padding: 10px;
+}
+.product-info h4 a{
+    text-decoration: none;
+}
+.product-img {
+    margin-right: 10px;
+}
+.addToCartBtn{
+    background: #FF9D0C;
+    width: 120px;
+    height: 30px;
+    border: 1px solid lightgray;
+    cursor: pointer;
+    color: #fff;
+}
