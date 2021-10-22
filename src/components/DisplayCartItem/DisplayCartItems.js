@@ -11,7 +11,9 @@ const DisplayCartItems = (props) => {
             </div>
             <div className="displayImg">
                 <h6>{props.data.name}</h6>
+                <p>Quantity: {props.data.quantity}</p>
             </div>
+            
         </div>
     );
 };

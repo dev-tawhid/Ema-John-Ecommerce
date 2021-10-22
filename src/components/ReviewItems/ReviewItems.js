@@ -12,8 +12,9 @@ const ReviewItems = (props) => {
                 </div>
             <div className="product-info">
                 <h4>{name}</h4>
-                <p> price: {price}</p>
-                <p>by: {seller}</p>
+                <p> Product price: {price} </p>
+                <p>Quantity: {quantity}</p>
+                <p>Price by Quantity: {price} * {quantity} = {price*quantity}</p>
                 <button onClick={() => props.handleRemoveProduct(key)} className="removeItem">Remove item</button>
             </div>
     </div>
