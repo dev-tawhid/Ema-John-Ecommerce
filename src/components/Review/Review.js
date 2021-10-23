@@ -1,10 +1,11 @@
 import { faHandMiddleFinger } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from 'react';
 import fakeData from '../../fakeData';
-import { getDatabaseCart, removeFromDatabaseCart } from '../../utilities/databaseManager';
+import { getDatabaseCart, processOrder, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import Cart from '../Cart/Cart';
 import ReviewItems from '../ReviewItems/ReviewItems';
 import './Review.css'
+import successImg from '../../images/giphy.gif'
 // import Product from '../Product/Product';
 
 const Review = () => {
@@ -30,6 +31,19 @@ const Review = () => {
         removeFromDatabaseCart(productKey);
     }
 
+    const [orderPlace,SetOrderPlace] = useState(false);
+
+    let thankyou;
+    if(SetOrderPlace){
+        thankyou = <img src={successImg} alt="" />
+    }
+
+    const handlePlaceOrder = () => {
+        setCart([]);
+        SetOrderPlace(true);
+        processOrder();
+    }
+
     return (
         <div className="review-container">
            <div className="review-product-container">
@@ -40,9 +54,14 @@ const Review = () => {
                         product={pd}>
                         </ReviewItems>)
                 }
+                {
+                    thankyou
+                }
            </div>
            <div className="review-cart">
-               <Cart cart={cart} ></Cart>
+               <Cart cart={cart} >
+                   <button onClick={handlePlaceOrder}>Place order</button>
+               </Cart>
            </div>
         </div>
     );

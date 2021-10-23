@@ -6,6 +6,7 @@ import Cart from '../Cart/Cart';
 import DisplayCartItems from '../DisplayCartItem/DisplayCartItems';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
+import { Link } from 'react-router-dom';
 
 const Shop = () => {
     
@@ -59,7 +60,9 @@ const Shop = () => {
                 {
                     cart.map(element =>  <DisplayCartItems  data={element} ></DisplayCartItems> )
                 }
-                 <Cart cart={cart}></Cart> 
+                 <Cart cart={cart}>
+                    <Link to="/review"><button className="checkOutBtn" >Checkout</button></Link>
+                </Cart> 
             </div>
         </div>
     );
