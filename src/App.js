@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './components/Header/Header';
 import Shop from './components/Shop/Shop';
-import React from "react";
+import React, { createContext, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,13 +9,18 @@ import {
   Link
 } from "react-router-dom";
 import Review from './components/Review/Review';
-import Inventory from './components/Inventory/Inventory';
 import NotFound from './components/NotFound/NotFound';
 import ProductDetail from './components/productDetail/ProductDetail';
+import Login from './components/Login/Login';
+import Shipment from './components/Shipment/Shipment';
+export const  UserContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
+
   return (
-    <div>
+    <UserContext.Provider value={[loggedInUser,setLoggedInUser]}>
+      <h2>Login: {loggedInUser.email}</h2>
       <Header></Header>
       <Router>
         <Switch>
@@ -25,14 +30,18 @@ function App() {
             <Route path="/review">
               <Review></Review>
             </Route>
-            <Route path="/inventory">
-                <Inventory></Inventory>
+            <Route path="/shipment">
+                <Shipment></Shipment>
+            </Route>
+            <Route path="/login">
+                <Login></Login>
+            </Route>
+           
+            <Route path="/product/:productKey">
+                <ProductDetail></ProductDetail>
             </Route>
             <Route exact path="/">
                 <Shop></Shop>
-            </Route>
-            <Route path="/product/:productKey">
-                <ProductDetail></ProductDetail>
             </Route>
             <Route path="*">
                 <NotFound></NotFound>
@@ -40,7 +49,7 @@ function App() {
         </Switch>
       </Router>
       
-    </div>
+    </UserContext.Provider>
   );
 }
 

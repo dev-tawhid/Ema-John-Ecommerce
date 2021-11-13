@@ -61,7 +61,7 @@ const Shop = () => {
                     cart.map(element =>  <DisplayCartItems  data={element} ></DisplayCartItems> )
                 }
                  <Cart cart={cart}>
-                    <Link to="/review"><button className="checkOutBtn" >Checkout</button></Link>
+                    <Link to="/review"><button className="checkOutBtn" >Review Products</button></Link>
                 </Cart> 
             </div>
         </div>
